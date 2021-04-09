@@ -1,7 +1,7 @@
 {
 "name": "nth.mybox",
 "nameComment": "Originally was com.domybest.mybox, but modified for Nth packages",
-"version": "1.6.0",
+"version": "1.6.2",
 "displayName": "MyBox",
 "description": "MyBox is a set of attributes, tools and extensions for Unity",
 
