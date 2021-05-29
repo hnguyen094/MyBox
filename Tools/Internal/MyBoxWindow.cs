@@ -102,16 +102,16 @@ namespace MyBox.Internal
 				GUILayout.FlexibleSpace();
 
 				if (GUILayout.Button("  Github Page ↗", _buttonStyle, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight)))
-					Application.OpenURL("https://github.com/Deadcows/MyBox");
+					Application.OpenURL("https://github.com/hnguyen094/MyBox");
 
 				if (GUILayout.Button("  Attributes ↗", _buttonStyle, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight)))
-					Application.OpenURL("https://github.com/Deadcows/MyBox/wiki/Attributes");
+					Application.OpenURL("https://github.com/hnguyen094/MyBox/wiki/Attributes");
 
 				if (GUILayout.Button("  Extensions ↗", _buttonStyle, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight)))
-					Application.OpenURL("https://github.com/Deadcows/MyBox/tree/master/Extensions");
+					Application.OpenURL("https://github.com/hnguyen094/MyBox/tree/master/Extensions");
 
 				if (GUILayout.Button("  Tools, Features ↗", _buttonStyle, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight)))
-					Application.OpenURL("https://github.com/Deadcows/MyBox/wiki/Tools-and-Features");
+					Application.OpenURL("https://github.com/hnguyen094/MyBox/wiki/Tools-and-Features");
 
 				GUILayout.FlexibleSpace();
 			}
@@ -181,7 +181,7 @@ namespace MyBox.Internal
 
 					void AddPackage()
 					{
-						_updateRequest = UnityEditor.PackageManager.Client.Add("https://github.com/Deadcows/MyBox.git");
+						_updateRequest = UnityEditor.PackageManager.Client.Add("https://github.com/hnguyen094/MyBox.git");
 					}
 				}
 
@@ -191,10 +191,10 @@ namespace MyBox.Internal
 					Application.OpenURL("https://github.com/Deadcows/MyBox/wiki/Installation");
 
 				if (GUILayout.Button("  Releases ↗", _buttonStyle, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight)))
-					Application.OpenURL("https://github.com/Deadcows/MyBox/releases");
+					Application.OpenURL("https://github.com/hnguyen094/MyBox/releases");
 
 				if (GUILayout.Button("  Changelog ↗", _buttonStyle, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight)))
-					Application.OpenURL("https://github.com/Deadcows/MyBox/blob/master/CHANGELOG.md");
+					Application.OpenURL("https://github.com/hnguyen094/MyBox/blob/master/CHANGELOG.md");
 
 				GUILayout.FlexibleSpace();
 			}

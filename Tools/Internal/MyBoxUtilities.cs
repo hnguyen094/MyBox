@@ -10,7 +10,7 @@ namespace MyBox.Internal
 {
     public static class MyBoxUtilities
     {
-        private static readonly string MyBoxPackageInfoURL = "https://raw.githubusercontent.com/Deadcows/MyBox/master/package.json";
+        private static readonly string MyBoxPackageInfoURL = "https://raw.githubusercontent.com/hnguyen094/MyBox/master/package.json";
         private static readonly string MyBoxPackageTag = "com.domybest.mybox";
 
 
