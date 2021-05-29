@@ -1,5 +1,5 @@
 #region License (MIT)
-/*Copyright (C) 2014, Rasmus Lindén - Brainswitch Machina
+/*Copyright (C) 2014, Rasmus Lindï¿½n - Brainswitch Machina
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -12,19 +12,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 using UnityEditor;
 
-public class ShowInInspectorEditor : Editor
-{
-    //public void OnApplicationQuit()
-    //{
-        // Todo: Reset static variables, somehow?
-    //}
- 
-	public override void OnInspectorGUI () {
+namespace MyBox {
+	public class ShowInInspectorEditor : Editor {
+		//public void OnApplicationQuit()
+		//{
+		// Todo: Reset static variables, somehow?
+		//}
 
-        if (target == null)
-			return;
+		public override void OnInspectorGUI() {
 
-        this.DrawDefaultInspector();
-        this.DrawShowInInspector();
+			if (target == null)
+				return;
+
+			this.DrawDefaultInspector();
+			this.DrawShowInInspector();
+		}
 	}
 }
