@@ -31,7 +31,7 @@ namespace MyBox
 		}
 
 #if UNITY_EDITOR
-		public UnityEditor.SceneAsset Scene;
+		public UnityEditor.SceneAsset SceneAsset;
 #endif
 
 		[Tooltip("The name of the referenced scene. This may be used at runtime to load the scene.")]
@@ -41,11 +41,12 @@ namespace MyBox
 
 		[SerializeField] private bool sceneEnabled;
 
-		public bool IsAssigned
-		{
-			get { return !string.IsNullOrEmpty(SceneName); }
-		}
+		public bool IsAssigned => !string.IsNullOrEmpty(SceneName); 
 
+		public Scene Scene => SceneManager.GetSceneByName(SceneName);
+
+		public bool IsLoaded => Scene.isLoaded;
+		
 		private void ValidateScene()
 		{
 			if (string.IsNullOrEmpty(SceneName))
@@ -70,12 +71,21 @@ namespace MyBox
 			return SceneManager.LoadSceneAsync(SceneName, mode);
 		}
 
+		public AsyncOperation UnloadSceneAsync() 
+		{
+			ValidateScene();
+			return SceneManager.UnloadSceneAsync(SceneName);
+		}
+		
+		public bool SetAsActive() =>
+			SceneManager.SetActiveScene(Scene);
+		
 		public void OnBeforeSerialize()
 		{
 #if UNITY_EDITOR
-			if (Scene != null)
+			if (SceneAsset != null)
 			{
-				string sceneAssetPath = UnityEditor.AssetDatabase.GetAssetPath(Scene);
+				string sceneAssetPath = UnityEditor.AssetDatabase.GetAssetPath(SceneAsset);
 				string sceneAssetGUID = UnityEditor.AssetDatabase.AssetPathToGUID(sceneAssetPath);
 
 				UnityEditor.EditorBuildSettingsScene[] scenes =
@@ -89,7 +99,7 @@ namespace MyBox
 						sceneIndex = i;
 						sceneEnabled = scenes[i].enabled;
 						if (scenes[i].enabled)
-							SceneName = Scene.name;
+							SceneName = SceneAsset.name;
 						break;
 					}
 				}
@@ -184,7 +194,7 @@ namespace MyBox.Internal
 		/// <param name="property">Property to search through.</param>
 		private void CacheProperties(SerializedProperty property)
 		{
-			scene = property.FindPropertyRelative("Scene");
+			scene = property.FindPropertyRelative("SceneAsset");
 			sceneName = property.FindPropertyRelative("SceneName");
 			sceneIndex = property.FindPropertyRelative("sceneIndex");
 			sceneEnabled = property.FindPropertyRelative("sceneEnabled");
